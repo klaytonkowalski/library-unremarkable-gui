@@ -12,7 +12,7 @@ install(
 )
 
 install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/unremarkable_export.h
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/src/unremarkable_export.h
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/unremarkable
 )
 

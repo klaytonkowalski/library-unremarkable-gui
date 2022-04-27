@@ -1,11 +1,13 @@
 set(
     UNREMARKABLE_HEADERS
-    ../include/unremarkable-main.hpp
+    ../include/utility.hpp
+    ../include/application.hpp
 )
 
 set(
     UNREMARKABLE_SOURCES
-    unremarkable-main.cpp
+    utility.cpp
+    application.cpp
 )
 
 add_library(

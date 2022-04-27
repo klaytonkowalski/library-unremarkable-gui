@@ -27,41 +27,19 @@
 // https://github.com/klaytonkowalski/library-unremarkable-gui
 
 ///////////////////////////////////////////////////////////////////////////////
-// DEPENDENCIES
+// DEFINITIONS
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "application.hpp"
+#ifndef UNREMARKABLE_UTILITY_HPP
+#define UNREMARKABLE_UTILITY_HPP
 
-///////////////////////////////////////////////////////////////////////////////
-// VARIABLES
-///////////////////////////////////////////////////////////////////////////////
+#define UNREMARKABLE_NAMESPACE_BEGIN namespace Unremarkable {
+#define UNREMARKABLE_NAMESPACE_END }
 
-Unremarkable::Application *application { nullptr };
+#define UNREMARKABLE_PUBLIC_FUNCTIONS public:
+#define UNREMARKABLE_PUBLIC_VARIABLES public:
 
-///////////////////////////////////////////////////////////////////////////////
-// FUNCTIONS
-///////////////////////////////////////////////////////////////////////////////
+#define UNREMARKABLE_PRIVATE_FUNCTIONS private:
+#define UNREMARKABLE_PRIVATE_VARIABLES private:
 
-bool initialize()
-{
-    application = new Unremarkable::Application(960, 540, "Unremarkable Example");
-    return true;
-}
-
-void terminate()
-{
-    if (application)
-    {
-        delete application;
-    }
-}
-
-int main(int argc, char *argv[])
-{
-    if (initialize())
-    {
-        application->Run();
-    }
-    terminate();
-    return 0;
-}
+#endif

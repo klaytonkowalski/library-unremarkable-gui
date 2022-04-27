@@ -30,38 +30,44 @@
 // DEPENDENCIES
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "application.hpp"
+#ifndef UNREMARKABLE_MAIN_HPP
+#define UNREMARKABLE_MAIN_HPP
+
+#include "unremarkable_export.h"
+#include "utility.hpp"
+
+#include <SFML/Graphics.hpp>
+
+#include <string>
 
 ///////////////////////////////////////////////////////////////////////////////
-// VARIABLES
+// CONTAINERS
 ///////////////////////////////////////////////////////////////////////////////
 
-Unremarkable::Application *application { nullptr };
+UNREMARKABLE_NAMESPACE_BEGIN
 
-///////////////////////////////////////////////////////////////////////////////
-// FUNCTIONS
-///////////////////////////////////////////////////////////////////////////////
-
-bool initialize()
+class UNREMARKABLE_EXPORT Application
 {
-    application = new Unremarkable::Application(960, 540, "Unremarkable Example");
-    return true;
-}
 
-void terminate()
-{
-    if (application)
-    {
-        delete application;
-    }
-}
+    UNREMARKABLE_PUBLIC_FUNCTIONS
+    
+    Application(unsigned int width, unsigned int height, const std::string &title);
+    virtual ~Application();
 
-int main(int argc, char *argv[])
-{
-    if (initialize())
-    {
-        application->Run();
-    }
-    terminate();
-    return 0;
-}
+    void Run();
+
+    UNREMARKABLE_PRIVATE_FUNCTIONS
+
+    void Input();
+    void Update();
+    void Draw();
+
+    UNREMARKABLE_PRIVATE_VARIABLES
+
+    sf::RenderWindow window;
+
+};
+
+UNREMARKABLE_NAMESPACE_END
+
+#endif

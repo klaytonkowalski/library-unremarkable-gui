@@ -33,35 +33,50 @@
 #include "application.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
-// VARIABLES
-///////////////////////////////////////////////////////////////////////////////
-
-Unremarkable::Application *application { nullptr };
-
-///////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 ///////////////////////////////////////////////////////////////////////////////
 
-bool initialize()
+UNREMARKABLE_NAMESPACE_BEGIN
+
+Application::Application(unsigned int width, unsigned int height, const std::string &title) :
+    window(sf::VideoMode(width, height), title)
 {
-    application = new Unremarkable::Application(960, 540, "Unremarkable Example");
-    return true;
+    
 }
 
-void terminate()
+Application::~Application() {}
+
+void Application::Run()
 {
-    if (application)
+    while (window.isOpen())
     {
-        delete application;
+        Input();
+        Update();
+        Draw();
     }
 }
 
-int main(int argc, char *argv[])
+void Application::Input()
 {
-    if (initialize())
+    sf::Event event;
+    while (window.pollEvent(event))
     {
-        application->Run();
+        if (event.type == sf::Event::Closed)
+        {
+            window.close();
+        }
     }
-    terminate();
-    return 0;
 }
+
+void Application::Update()
+{
+
+}
+
+void Application::Draw()
+{
+    window.clear();
+    window.display();
+}
+
+UNREMARKABLE_NAMESPACE_END
