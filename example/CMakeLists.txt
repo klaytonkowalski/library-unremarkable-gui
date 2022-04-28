@@ -1,7 +1,7 @@
 # Add Unremarkable executable target.
 add_executable(
     unremarkable-example
-    main.cpp
+    Main.cpp
 )
 
 # Link example application against Unremarkable and SFML libraries.

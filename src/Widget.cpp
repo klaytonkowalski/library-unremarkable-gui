@@ -1,0 +1,7 @@
+#include "Widget.hpp"
+
+UNREMARKABLE_NAMESPACE_BEGIN
+
+Widget::~Widget() {}
+
+UNREMARKABLE_NAMESPACE_END

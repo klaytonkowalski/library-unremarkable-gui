@@ -1,15 +1,19 @@
 # Collect Unremarkable header files.
 set(
     UNREMARKABLE_HEADERS
-    ../include/utility.hpp
-    ../include/application.hpp
+    ../include/Utility.hpp
+    ../include/Application.hpp
+    ../include/Widget.hpp
+    ../include/Frame.hpp
 )
 
 # Collect Unremarkable source files.
 set(
     UNREMARKABLE_SOURCES
-    utility.cpp
-    application.cpp
+    Utility.cpp
+    Application.cpp
+    Widget.cpp
+    Frame.cpp
 )
 
 # Add Unremarkable library target.
