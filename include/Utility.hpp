@@ -5,6 +5,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <memory>
+
 #define UNREMARKABLE_NAMESPACE_BEGIN namespace Unremarkable {
 #define UNREMARKABLE_NAMESPACE_END }
 

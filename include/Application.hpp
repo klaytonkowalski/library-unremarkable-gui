@@ -5,9 +5,6 @@
 
 UNREMARKABLE_NAMESPACE_BEGIN
 
-class Widget;
-class Frame;
-
 class UNREMARKABLE_EXPORT Application
 {
 
@@ -18,7 +15,7 @@ class UNREMARKABLE_EXPORT Application
 
     void run();
 
-    Frame * addFrame(const sf::Vector2f &position, const sf::Vector2f &size);
+    sf::RenderWindow & getRenderWindow();
 
     UNREMARKABLE_PRIVATE_FUNCTIONS
 
@@ -28,8 +25,8 @@ class UNREMARKABLE_EXPORT Application
 
     UNREMARKABLE_PRIVATE_VARIABLES
 
-    sf::RenderWindow _window;
-    std::vector<Widget *> _widgets;
+    sf::RenderWindow _renderWindow;
+    sf::Clock _clock;
 
 };
 

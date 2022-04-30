@@ -4,7 +4,6 @@ set(
     ../include/Utility.hpp
     ../include/Application.hpp
     ../include/Widget.hpp
-    ../include/Frame.hpp
 )
 
 # Collect Unremarkable source files.
@@ -13,7 +12,6 @@ set(
     Utility.cpp
     Application.cpp
     Widget.cpp
-    Frame.cpp
 )
 
 # Add Unremarkable library target.

@@ -1,19 +1,16 @@
 #include "Application.hpp"
-#include "Frame.hpp"
+#include "Widget.hpp"
 
 UNREMARKABLE_NAMESPACE_BEGIN
 
 Application::Application(const sf::VideoMode &videoMode, const std::string &title) :
-    _window(videoMode, title)
-{
-    
-}
+    _renderWindow(videoMode, title) {}
 
 Application::~Application() {}
 
 void Application::run()
 {
-    while (_window.isOpen())
+    while (_renderWindow.isOpen())
     {
         input();
         update();
@@ -21,38 +18,32 @@ void Application::run()
     }
 }
 
-Frame * Application::addFrame(const sf::Vector2f &position, const sf::Vector2f &size)
+sf::RenderWindow & Application::getRenderWindow()
 {
-    Frame *frame = new Frame(position, size);
-    _widgets.push_back(frame);
-    return frame;
+    return _renderWindow;
 }
 
 void Application::input()
 {
     sf::Event event;
-    while (_window.pollEvent(event))
+    while (_renderWindow.pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
         {
-            _window.close();
+            _renderWindow.close();
         }
     }
 }
 
 void Application::update()
 {
-
+    const sf::Time deltaTime { _clock.restart() };
 }
 
 void Application::draw()
 {
-    _window.clear();
-    for (Widget *widget : _widgets)
-    {
-        widget->draw(_window, sf::RenderStates::Default);
-    }
-    _window.display();
+    _renderWindow.clear();
+    _renderWindow.display();
 }
 
 UNREMARKABLE_NAMESPACE_END
